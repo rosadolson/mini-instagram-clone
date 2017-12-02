@@ -1,6 +1,9 @@
 import React from 'react'
+import Header from './Header'
 
-const App = () => <div> Hello World 👋 </div>
-
+const App = () => 
+  <div> 
+    <Header />
+  </div>
 
 export default App
