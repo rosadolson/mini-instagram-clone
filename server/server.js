@@ -14,10 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(require('./config/error-handler'))
 
 app.post('/api/posts', (req, res) => {
-
   const {title, img, caption} = req.body
   const newPost = {title, img, caption}
-
   Post(newPost).save((err, savedPost) => {
     if (err) {
       res.json({ error: err })
