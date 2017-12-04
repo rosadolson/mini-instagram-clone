@@ -35,13 +35,13 @@ app.get('/api/posts', (req, res) => {
   })
 })
 
-app.get('/api/posts/:id', (req, res) => {
+app.get('/api/posts/:postId', (req, res) => {
   const postId = req.params.postId
   Post.findById({_id: postId}, (err, post) => {
-    if (err) {
-      res.json({ error: err})
+    if(err) {
+      res.json({ error: err })
     } else {
-      res.json({ msg: 'Post Found!', post: post})
+      res.json({ msg: `Found ${post.title}`, post: post})
     }
   })
 })
