@@ -53,6 +53,23 @@ class App extends Component {
     this.setState({ caption: e.target.value })
   }
 
+  // deletePost = (e) => {
+  //   e.preventDefault()
+  //   const thisPost = this.state.posts.find(item => {
+  //     return e.target.value === item.id
+  //   })
+  //   const newPostArray = this.state.posts.filter(item => {
+  //     return item.id !== thisPost.id
+  //   })
+  //   $.ajax({
+  //     url: '/api/posts/:postId',
+  //     method: 'DELETE',
+  //     data: newPostArray
+  //   }).done((response) => {
+  //     this.loadPostsFromServer()
+  //   })
+  // }
+
   render () {
     return (
       <div> 
@@ -65,7 +82,10 @@ class App extends Component {
       />
       {
         this.state.posts
-        ? <PostList posts={this.state.posts} />
+        ? <PostList 
+        posts={this.state.posts}
+        deletePost={this.deletePost}
+        />
         : 'No Posts Yet'
       }
     </div>  
