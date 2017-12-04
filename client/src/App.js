@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Header from './Header'
 import PostList from './PostList'
 import $ from 'jquery'
+import NewPostForm from './NewPostForm'
 
 class App extends Component {
   state = {
@@ -24,7 +25,8 @@ class App extends Component {
     })
   }
 
-  submitNewPost = () => {
+  submitNewPost = (e) => {
+    e.preventDefault()
     const newPost = {
       title: this.state.title,
       img: this.state.img, 
@@ -54,16 +56,18 @@ class App extends Component {
   render () {
     return (
       <div> 
-      <form>
-        <input type='text' placeholder='Title' onChange={this.updateTitle} />
-        <input type='text' placeholder='Image' onChange={this.updateImg} />
-        <input type='text' placeholder='Caption' onChange={this.updateCaption} />
-        <button onClick={this.submitNewPost}>SUBMIT</button>
-      </form>
+      <NewPostForm 
+        updateTitle={this.updateTitle}
+        updateImg={this.updateImg}
+        updateCaption={this.updateCaption}
+        submitNewPost={this.submitNewPost}
+      />
       <Header />
       {
         this.state.posts
-        ? <PostList posts={this.state.posts} />
+        ? <PostList
+        posts={this.state.posts}
+        />
         : 'No Posts Yet'
       }
     </div>  
