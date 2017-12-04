@@ -35,7 +35,7 @@ app.get('/api/posts', (req, res) => {
   })
 })
 
-app.delete('/api/posts/:id', (req, res) => {
+app.get('/api/posts/:id', (req, res) => {
   const postId = req.params.postId
   Post.findById({_id: postId}, (err, post) => {
     if (err) {

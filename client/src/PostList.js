@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Post from './Post'
 
 const PostList = ({ posts }) => {
   return (
     <div>
       {
-        posts.map(( item, index) => {
-          return <p key={index}>{item.title}</p>
+        posts.map(( post, index) => {
+          return (
+            <Post key={index} post={post}/>
+          )
         })
       }
     </div>

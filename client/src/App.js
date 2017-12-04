@@ -56,18 +56,16 @@ class App extends Component {
   render () {
     return (
       <div> 
+      <Header />
       <NewPostForm 
         updateTitle={this.updateTitle}
         updateImg={this.updateImg}
         updateCaption={this.updateCaption}
         submitNewPost={this.submitNewPost}
       />
-      <Header />
       {
         this.state.posts
-        ? <PostList
-        posts={this.state.posts}
-        />
+        ? <PostList posts={this.state.posts} />
         : 'No Posts Yet'
       }
     </div>  
