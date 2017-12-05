@@ -57,7 +57,7 @@ const Post = ({ post, deletePost }) => {
       <div style={styles.topSection}>
         <FontAwesome.FaUser style={styles.userIcon} />
         <p>{post.title}</p>
-        <button type='button' onClick={deletePost}>DELETE</button>
+        <button type='button' onClick={deletePost}>X</button>
       </div>
 
       <img style={styles.image} src={post.img} />
