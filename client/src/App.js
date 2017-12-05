@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Header from './Header'
 import PostList from './PostList'
+import PostForm from './PostForm'
 import $ from 'jquery'
-import NewPostForm from './NewPostForm'
 
 class App extends Component {
   state = {
@@ -74,7 +74,7 @@ class App extends Component {
     return (
       <div> 
       <Header />
-      <NewPostForm 
+      <PostForm 
         updateTitle={this.updateTitle}
         updateImg={this.updateImg}
         updateCaption={this.updateCaption}

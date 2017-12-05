@@ -38,5 +38,9 @@
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-standard": "^3.0.1",
     "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "l": "^0.6.0",
+    "react-icons": "^2.2.7"
   }
 }
