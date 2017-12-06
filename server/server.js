@@ -13,38 +13,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(require('./config/error-handler'))
 
-app.post('/api/posts', (req, res) => {
-  const {title, img, caption} = req.body
-  const newPost = {title, img, caption}
-  Post(newPost).save((err, savedPost) => {
-    if (err) {
-      res.json({ error: err })
-    } else {
-      res.json({ msg: 'SUCCESS', data: savedPost })
-    }
-  })
-})
-
-app.get('/api/posts', (req, res) => {
-  Post.find((err, posts) => {
-    if (err) {
-      res.json({ error: err })
-    } else {
-      res.json({ msg: 'SUCCESS', posts })
-    }
-  })
-})
-
-// app.delete('/api/posts/:postId', (req, res) => {
-//   const postId = req.params.postId
-//   Post.findByIdAndRemove({_id: postId}, (err, post) => {
-//     if(err) {
-//       res.json({ error: err })
-//     } else {
-//       res.json({ msg: `Deleted ${post.title}`, post: post})
-//     }
-//   })
-// })
 
 const server = app.listen(port, () => console.log(`Running on port: ${port} 🔥`))
 
