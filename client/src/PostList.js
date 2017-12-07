@@ -1,28 +1,27 @@
 import React from 'react'
+import Post from './Post'
+import PropTypes from 'prop-types'
 
-const styles = {
-  container: {
-    border: '1px solid black'
-  }
-}
-
-const PostList = ({ posts }) => {
+const PostList = ({ posts, deletePost }) => {
   return (
     <div>
       {
-        posts.map((item, index) => {
+        posts.map((post, index) => {
           return (
-            <div key={index} style={styles.container}>
-              <p>{item.title}</p>
-              <p>{item.userName}</p>
-              <img src={item.img} />
-              <p>{item.caption}</p>
-            </div>
+           <Post post={post}
+            key={index}
+            deletePost={() => deletePost(post)}
+             />
           )
         })
       }
     </div>
   )
+}
+
+PostList.propTypes = {
+  posts: PropTypes.array.isRequired,
+  deletePost: PropTypes.func.isRequired
 }
 
 export default PostList
